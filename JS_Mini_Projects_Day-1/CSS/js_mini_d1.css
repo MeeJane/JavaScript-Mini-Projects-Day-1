@@ -1,0 +1,195 @@
+
+        .container_1 {
+            background: #ffffff;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .title_1 {
+            text-align: center;
+            color: #ff5722;
+        }
+
+        .output_1 {
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        .btn_1 {
+            padding: 8px 15px;
+            margin: 5px 0;
+            border: none;
+            background: #ff5722;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn_1:hover {
+            background: #e64a19;
+        }
+
+            .container_2 {
+            max-width: 700px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        .title_2 {
+            text-align: center;
+            color: #3f51b5;
+        }
+
+        .question_2 {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .options_2 {
+            margin-left: 20px;
+        }
+
+        .btn_2 {
+            margin-top: 15px;
+            padding: 8px 14px;
+            border: none;
+            background: #3f51b5;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn_2:hover {
+            background: #303f9f;
+        }
+
+        .result_2 {
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        
+        .container_3 {
+            max-width: 700px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .title_3 {
+            text-align: center;
+            color: #009688;
+        }
+
+        .btn_3 {
+            padding: 6px 12px;
+            margin: 5px;
+            border: none;
+            background: #009688;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn_3:hover {
+            background: #00796b;
+        }
+
+        .cartItem_3 {
+            margin: 8px 0;
+        }
+
+        .total_3 {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .container_4 {
+                max-width: 600px;
+                margin: auto;
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .title_4 {
+                text-align: center;
+                color: #ff5722;
+            }
+
+            .btn_4 {
+                padding: 8px 14px;
+                margin: 5px;
+                border: none;
+                background: #ff5722;
+                color: white;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+            .btn_4:hover {
+                background: #e64a19;
+            }
+
+            .output_4 {
+                margin-top: 15px;
+                line-height: 1.8;
+                background: #fafafa;
+                padding: 10px;
+                border-radius: 4px;
+            }
+
+            .container_5 {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .title_5 {
+            text-align: center;
+            color: #3f51b5;
+        }
+
+        .output_5 {
+            margin-top: 15px;
+            line-height: 1.8;
+            background: #fafafa;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+         .container_6 {
+            max-width: 500px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .title_6 {
+            text-align: center;
+            color: #009688;
+        }
+
+        .output_6 {
+            margin-top: 15px;
+            line-height: 1.8;
+            background: #fafafa;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        

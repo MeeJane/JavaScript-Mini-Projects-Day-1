@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Mini Projects Day-1</title>
+</head>
+
+<body>
+    <!-- Project-1 -->
+    <h4>Mini project 1. Online Food Ordering System </h4>
+    <div class="container_1">
+        <h2 class="title_1">Online Food Ordering System</h2>
+
+        <div id="output_1" class="output_1"></div>
+
+        <button class="btn_1" onclick="addItem_1('Pasta', 180)">Add Pasta</button>
+        <button class="btn_1" onclick="removeItem_1('French Fries', 120)">Remove Fries</button>
+        <button class="btn_1" onclick="deliverOrder_1()">Deliver Order</button>
+    </div>
+
+    <script>
+        // 1. Store Order Details
+        let order_1 = {
+            restaurantName_1: "Spicy Hub",
+            orderNumber_1: 1001,
+            items_1: ["Burger", "Pizza", "French Fries"],
+            totalPrice_1: 650,
+            isDelivered_1: false
+        };
+
+        // 2. Display Order Summary
+        function displayOrderSummary_1() {
+            let outputDiv_1 = document.getElementById("output_1");
+
+            outputDiv_1.innerHTML = `
+            <strong>Restaurant:</strong> ${order_1.restaurantName_1} <br>
+            <strong>Order No:</strong> ${order_1.orderNumber_1} <br>
+            <strong>Food Items:</strong> ${order_1.items_1.join(", ")} <br>
+            <strong>Total Price:</strong> ₹${order_1.totalPrice_1} <br>
+            <strong>Delivery Status:</strong> 
+            ${order_1.isDelivered_1 ? "Delivered" : "Not Delivered"}
+            <hr>
+        `;
+        }
+
+        // 3. Add Food Item
+        function addItem_1(itemName_1, price_1) {
+            order_1.items_1.push(itemName_1);
+            order_1.totalPrice_1 += price_1;
+            displayOrderSummary_1();
+        }
+
+        // 4. Remove Food Item
+        function removeItem_1(itemName_1, price_1) {
+            let index_1 = order_1.items_1.indexOf(itemName_1);
+
+            if (index_1 !== -1) {
+                order_1.items_1.splice(index_1, 1);
+                order_1.totalPrice_1 -= price_1;
+            }
+            displayOrderSummary_1();
+        }
+
+        // 5. Update Delivery Status
+        function deliverOrder_1() {
+            order_1.isDelivered_1 = true;
+            displayOrderSummary_1();
+        }
+
+        // Initial Display
+        displayOrderSummary_1();
+    </script>
+
+    <hr>
+
+    <!-- Project-2 -->
+    <h4>Mini Project 2 : Online Quiz System </h4>
+
+    <div class="container_2">
+        <h2 class="title_2">Online Quiz System</h2>
+
+        <div id="quizOutput_2"></div>
+
+        <button class="btn_2" onclick="submitAnswer_2('1')">Choose 1</button>
+        <button class="btn_2" onclick="submitAnswer_2('2')">Choose 2</button>
+        <button class="btn_2" onclick="submitAnswer_2('3')">Choose 3</button>
+    </div>
+
+    <script>
+        // 1. Store Quiz Details (Multiple Questions)
+        let quizData_2 = [
+            {
+                question_2: "Which language is used for web development?",
+                options_2: ["1.JavaScript", "2.Python", "3.Java"],
+                correctAnswer_2: "1",
+                userAnswer_2: ""
+            },
+            {
+                question_2: "Which company developed Java?",
+                options_2: ["1.Microsoft", "2.Sun Microsystems", "3.Google"],
+                correctAnswer_2: "2",
+                userAnswer_2: ""
+            }
+        ];
+
+        let currentQuestionIndex_2 = 0;
+        let score_2 = 0;
+
+        // 2. Display Question
+        function displayQuestion_2() {
+            let quizDiv_2 = document.getElementById("quizOutput_2");
+            let currentQuiz_2 = quizData_2[currentQuestionIndex_2];
+
+            quizDiv_2.innerHTML = `
+            <div class="question_2">${currentQuiz_2.question_2}</div>
+            <div class="options_2">
+                ${currentQuiz_2.options_2.join("<br>")}
+            </div>
+            <div class="result_2"></div>
+        `;
+        }
+
+        // 3. Validate Answer & Display Result
+        function submitAnswer_2(answer_2) {
+            let quizDiv_2 = document.querySelector(".result_2");
+            let currentQuiz_2 = quizData_2[currentQuestionIndex_2];
+
+            currentQuiz_2.userAnswer_2 = Number(answer_2 - 1);
+
+            let isCorrect_2 = (Number(currentQuiz_2.userAnswer_2) + 1 === Number(currentQuiz_2.correctAnswer_2));
+
+            if (isCorrect_2) {
+                score_2++;
+            }
+            let cor_answer_ind = Number(currentQuiz_2.correctAnswer_2 - 1);
+            cor_answer = currentQuiz_2.options_2[cor_answer_ind];
+
+            let user_answer_ind = Number(answer_2 - 1);
+            user_answer = currentQuiz_2.options_2[user_answer_ind];
+            quizDiv_2.innerHTML = `
+            <strong>Your Answer:</strong> ${user_answer} <br>
+            <strong>Correct Answer:</strong> ${cor_answer} <br>
+            <strong>Status:</strong> ${isCorrect_2 ? "Correct ✅" : "Wrong ❌"} <br>
+        `;
+
+            currentQuestionIndex_2++;
+
+            if (currentQuestionIndex_2 < quizData_2.length) {
+                setTimeout(displayQuestion_2, 1500);
+            } else {
+                setTimeout(displayFinalScore_2, 1500);
+            }
+        }
+
+        // 4. Display Final Score
+        function displayFinalScore_2() {
+            let quizDiv_2 = document.getElementById("quizOutput_2");
+
+            quizDiv_2.innerHTML = `
+            <h3>Quiz Completed 🎉</h3>
+            <strong>Total Questions:</strong> ${quizData_2.length} <br>
+            <strong>Your Score:</strong> ${score_2} / ${quizData_2.length}
+        `;
+        }
+
+        // Initial Load
+        displayQuestion_2();
+    </script>
+
+    <hr>
+    <!-- Project-3 -->
+    <h4>Mini Project 3: E-Commerce Shopping Cart </h4>
+
+    <div class="container_3">
+        <h2 class="title_3">E-Commerce Shopping Cart</h2>
+
+        <div>
+            <button class="btn_3" onclick="addItem_3('Mobile', 15000)">Add Mobile</button>
+            <button class="btn_3" onclick="addItem_3('Headphones', 2000)">Add Headphones</button>
+            <button class="btn_3" onclick="addItem_3('Laptop', 55000)">Add Laptop</button>
+        </div>
+
+        <hr>
+
+        <div id="cartOutput_3"></div>
+    </div>
+
+    <script>
+        // 1. Store Cart Details
+        let cartItems_3 = [];
+        let totalPrice_3 = 0;
+
+        // 2. Add Item to Cart
+        function addItem_3(productName_3, price_3) {
+            let item_3 = {
+                name_3: productName_3,
+                price_3: price_3,
+                quantity_3: 1
+            };
+
+            cartItems_3.push(item_3);
+            totalPrice_3 += price_3;
+            displayCart_3();
+        }
+
+        // 3. Remove Item from Cart
+        function removeItem_3(index_3) {
+            totalPrice_3 -= cartItems_3[index_3].price_3;
+            cartItems_3.splice(index_3, 1);
+            displayCart_3();
+        }
+
+        // 4. Display Cart
+        function displayCart_3() {
+            let cartDiv_3 = document.getElementById("cartOutput_3");
+
+            if (cartItems_3.length === 0) {
+                cartDiv_3.innerHTML = "Cart is empty 🛒";
+                return;
+            }
+
+            let cartHTML_3 = "<h3>Cart Items</h3>";
+
+            cartItems_3.forEach((item_3, index_3) => {
+                cartHTML_3 += `
+                <div class="cartItem_3">
+                    ${item_3.name_3} - ₹${item_3.price_3}
+                    <button class="btn_3" onclick="removeItem_3(${index_3})">Remove</button>
+                </div>
+            `;
+            });
+
+            cartHTML_3 += `<div class="total_3">Total Price: ₹${totalPrice_3}</div>`;
+
+            cartDiv_3.innerHTML = cartHTML_3;
+        }
+
+        // Initial Display
+        displayCart_3();
+    </script>
+
+    <hr>
+
+    <!-- Project-4 -->
+    <h4>Mini project 4: Online Food Ordering System</h4>
+
+    <div class="container_4">
+        <h2 class="title_4">Online Food Ordering System</h2>
+
+        <div id="output_4" class="output_4"></div>
+
+        <button class="btn_4" onclick="addItem_4('French Fries',120)">Add Fries</button>
+        <button class="btn_4" onclick="addItem_4('Cold Drink',50)">Add Drink</button>
+        <button class="btn_4" onclick="removeItem_4('Burger',150)">Remove Burger</button>
+        <button class="btn_4" onclick="deliverOrder_4()">Deliver Order</button>
+    </div>
+
+    <script>
+        // 1. Store and Manage Order Details
+        let order_4 = {
+            restaurantName_4: "Food Palace",
+            orderNumber_4: 2004,
+            items_4: ["Burger", "Pizza"],
+            totalPrice_4: 450,
+            isDelivered_4: false
+        };
+
+        // 2. Display Order Summary (Console + Screen)
+        function displayOrderSummary_4() {
+            let status_4 = order_4.isDelivered_4 ? "Delivered" : "Not Delivered";
+
+            // Console output
+            console.log("----- Order Summary -----");
+            console.log("Restaurant:", order_4.restaurantName_4);
+            console.log("Order No:", order_4.orderNumber_4);
+            console.log("Items:", order_4.items_4.join(", "));
+            console.log("Total Price: ₹" + order_4.totalPrice_4);
+            console.log("Status:", status_4);
+            console.log("--------------------------");
+
+            // Screen output
+            document.getElementById("output_4").innerHTML = `
+            <strong>Restaurant:</strong> ${order_4.restaurantName_4}<br>
+            <strong>Order Number:</strong> ${order_4.orderNumber_4}<br>
+            <strong>Items:</strong> ${order_4.items_4.join(", ")}<br>
+            <strong>Total Price:</strong> ₹${order_4.totalPrice_4}<br>
+            <strong>Status:</strong> ${status_4}
+        `;
+        }
+
+        // 3. Add Item
+        function addItem_4(itemName_4, price_4) {
+            order_4.items_4.push(itemName_4);
+            order_4.totalPrice_4 += price_4;
+            displayOrderSummary_4();
+        }
+
+        // 4. Remove Item
+        function removeItem_4(itemName_4, price_4) {
+            let index_4 = order_4.items_4.indexOf(itemName_4);
+
+            if (index_4 !== -1) {
+                order_4.items_4.splice(index_4, 1);
+                order_4.totalPrice_4 -= price_4;
+            }
+            displayOrderSummary_4();
+        }
+
+        // 5. Update Delivery Status
+        function deliverOrder_4() {
+            order_4.isDelivered_4 = true;
+            displayOrderSummary_4();
+        }
+
+        // Initial Display
+        displayOrderSummary_4();
+    </script>
+
+    <hr>
+
+    <!-- Project-5 -->
+    <h4>Mini Project 5: Student Grade Calculator </h4>
+
+    <div class="container_5">
+        <h2 class="title_5">Student Grade Calculator</h2>
+
+        <div id="output_5" class="output_5"></div>
+    </div>
+
+    <script>
+        // 1. Input: Student Name & Marks
+        let studentName_5 = "Dheena";
+        let marks_5 = [85, 92, 78, 88, 90]; // 5 subjects
+
+        // 2. Calculate Total
+        let totalMarks_5 = 0;
+        for (let i = 0; i < marks_5.length; i++) {
+            totalMarks_5 += marks_5[i];
+        }
+
+        // 3. Calculate Average
+        let averageMarks_5 = totalMarks_5 / marks_5.length;
+
+        // 4. Determine Grade
+        let grade_5 = "";
+
+        if (averageMarks_5 >= 90) {
+            grade_5 = "A";
+        } else if (averageMarks_5 >= 80) {
+            grade_5 = "B";
+        } else if (averageMarks_5 >= 70) {
+            grade_5 = "C";
+        } else if (averageMarks_5 >= 60) {
+            grade_5 = "D";
+        } else {
+            grade_5 = "F";
+        }
+
+        // 5. Display Output (Console + Screen)
+        console.log("----- Student Grade Report -----");
+        console.log("Student Name :", studentName_5);
+        console.log("Marks        :", marks_5.join(", "));
+        console.log("Total Marks  :", totalMarks_5);
+        console.log("Average      :", averageMarks_5.toFixed(2));
+        console.log("Grade        :", grade_5);
+        console.log("--------------------------------");
+
+        document.getElementById("output_5").innerHTML = `
+        <strong>Student Name:</strong> ${studentName_5}<br>
+        <strong>Marks:</strong> ${marks_5.join(", ")}<br>
+        <strong>Total Marks:</strong> ${totalMarks_5}<br>
+        <strong>Average:</strong> ${averageMarks_5.toFixed(2)}<br>
+        <strong>Grade:</strong> ${grade_5}
+    `;
+    </script>
+
+    <hr>
+
+
+    <!-- Project-6 -->
+    <h4>Mini Project 6: Simple Interest Calculator </h4>
+
+
+    <script>
+        // 1. Input using prompt()
+        let principal_6 = Number(prompt("Enter Principal Amount:"));
+        let rate_6 = Number(prompt("Enter Rate of Interest (%):"));
+        let time_6 = Number(prompt("Enter Time (in years):"));
+
+        // 2. Calculate Simple Interest
+        let simpleInterest_6 = (principal_6 * rate_6 * time_6) / 100;
+
+        // 3. Calculate Total Amount
+        let totalAmount_6 = principal_6 + simpleInterest_6;
+
+        // 4. Output using alert()
+        // alert(
+        //     "Simple Interest Calculator\n\n" +
+        //     "Principal: ₹" + principal_6 + "\n" +
+        //     "Rate: " + rate_6 + "%\n" +
+        //     "Time: " + time_6 + " years\n\n" +
+        //     "Simple Interest: ₹" + simpleInterest_6 + "\n" +
+        //     "Total Amount: ₹" + totalAmount_6
+        // );
+
+        // 5. Print Output on Screen
+        document.getElementById("output_6").innerHTML = `
+        <strong>Principal Amount:</strong> ₹${principal_6}<br>
+        <strong>Rate of Interest:</strong> ${rate_6}%<br>
+        <strong>Time Period:</strong> ${time_6} years<br>
+        <strong>Simple Interest:</strong> ₹${simpleInterest_6}<br>
+        <strong>Total Amount Payable:</strong> ₹${totalAmount_6}
+    `;
+
+        // 6. Console Output (Extra clarity)
+        console.log("----- Simple Interest Calculator -----");
+        console.log("Principal :", principal_6);
+        console.log("Rate :", rate_6);
+        console.log("Time :", time_6);
+        console.log("Simple Interest :", simpleInterest_6);
+        console.log("Total Amount :", totalAmount_6);
+        console.log("-------------------------------------");
+    </script>
+
+</body>
+
+</html>
